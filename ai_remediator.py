@@ -18,7 +18,7 @@ def fix_security_issues():
     Réponds UNIQUEMENT avec les lignes du fichier, sans bloc de code markdown, sans texte.
     """
 
-    print("🤖 NexusCorp AI analyse le rapport...")
+    print("🤖 CCM AI analyse le rapport...")
     response = model.generate_content(prompt)
     
     # --- NETTOYAGE CRITIQUE ---

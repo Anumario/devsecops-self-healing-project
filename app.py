@@ -24,7 +24,7 @@ app.config['DEBUG'] = True
 AWS_ACCESS_KEY = "AKIA-NEXUS-CORP-5566778899"
 
 def init_db():
-    conn = sqlite3.connect('nexus.db')
+    conn = sqlite3.connect('database.db')
     conn.execute('CREATE TABLE IF NOT EXISTS staff (id INTEGER PRIMARY KEY, name TEXT, role TEXT, salary TEXT)')
     conn.execute("INSERT OR IGNORE INTO staff VALUES (1, 'Boss', 'CEO', '15000€')")
     conn.execute("INSERT OR IGNORE INTO staff VALUES (2, 'Alice', 'Dev', '4000€')")
@@ -40,7 +40,7 @@ def index():
 @app.route('/api/staff/search')
 def search_staff():
     name = request.args.get('name', '')
-    conn = sqlite3.connect('nexus.db')
+    conn = sqlite3.connect('database.db')
     query = f"SELECT * FROM staff WHERE name = '{name}'" # Danger
     res = conn.execute(query).fetchall()
     return jsonify(res)
